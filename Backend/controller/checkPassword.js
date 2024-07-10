@@ -30,9 +30,8 @@ export const checkPassword = async (req,res)=> {
             secure: true
         }
         const token = jwt.sign(tokenData,process.env.SECRET_KEY,{expiresIn: '1d'});
-
         console.log("password is correct");
-        res.status.cookie("token",token,cookieOption)(200)
+        res.cookie("token",token,cookieOption).status(200)
         .json({
             Message: "Login Successfully", 
             Data: token,
@@ -44,7 +43,7 @@ export const checkPassword = async (req,res)=> {
         res.status(500)
         .json({
             Message: "Failed to check user password",
-            Success: true
+            Success: false
         })
     }
 }

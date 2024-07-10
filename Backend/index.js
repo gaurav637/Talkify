@@ -12,11 +12,11 @@ app.use(cors({
     credentials : true
 }));
 app.use('/user',chatRoutes);
-app.get('/' , (req,res) => {
-    res.send({
-        Message: "hello world iam Gaurav Negi"
-    })
-})
+// app.get('/' , (req,res) => {
+//     res.send({
+//         Message: "hello world iam Gaurav Negi"
+//     })
+// })
 
 
 const PORT = process.env.PORT||8080;

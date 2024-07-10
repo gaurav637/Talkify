@@ -1,6 +1,7 @@
 import {User} from "../models/user.js";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import 'dotenv/config';
 
 export const registerUser =  async (req,res) => {
     try{
@@ -41,13 +42,11 @@ export const loginUser = async (req,res) => {
             res.status(404).json({Error: "User Not Found!"});
         }
         const passwordMatch = bcrypt.compare(password,user.password);
-        console.log("password matcher -> ",passwordMatch);
         if(!passwordMatch){
             console.log("user not found invalid password!");
             res.status(404).json({Error: "User Not Found!"});
         }
-        
-        const key = password.env.SECRET_KEY;
+        const key = process.env.SECRET_KEY;
         const token = jwt.sign({userId : user._id}, key,{
             expiresIn: '1h'
         });
