@@ -6,6 +6,8 @@ import axios from 'axios'
 import toast from 'react-hot-toast';
 import { PiUserCircle } from "react-icons/pi";
 
+
+// check email page
 const CheckEmailPage = () => {
   const [data,setData] = useState({
     email : "",
