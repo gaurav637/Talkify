@@ -7,6 +7,7 @@ import taost from 'react-hot-toast'
 import { useDispatch } from 'react-redux'
 import { setUser } from '../redux/userSlice'
 
+// edit user
 
 const EditUserDetails = ({onClose,user}) => {
     const [data,setData] = useState({
