@@ -2,9 +2,10 @@ const UserModel = require("../models/UserModel")
 
 async function checkEmail(request,response){
     try {
-        const { email } = request.body
+        const { userId } = request.body
+       // const checkEmail = await UserModel.findOne({_id}).select("-password")
 
-        const checkEmail = await UserModel.findOne({email}).select("-password")
+       const checkEmail = await UserModel.findOne({ _id: userId});
 
         if(!checkEmail){
             return response.status(400).json({
