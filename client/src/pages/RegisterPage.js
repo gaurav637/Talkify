@@ -4,8 +4,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import uploadFile from '../helpers/uploadFile';
 import axios from 'axios'
 import toast from 'react-hot-toast';
+// import 'dotenv/config';
 
 const RegisterPage = () => {
+    console.log("heloo 9 line number");
   const [data,setData] = useState({
     name : "",
     email : "",
@@ -50,8 +52,9 @@ const RegisterPage = () => {
     e.preventDefault()
     e.stopPropagation()
 
-    const URL = `${process.env.REACT_APP_BACKEND_URL}/api/register`
-
+    // const URL = `${process.env.REACT_APP_BACKEND_URL}/api/register`
+    const URL = "http://localhost:4040/api/register";
+console.log("helloo url -> ",URL);
     try {
         const response = await axios.post(URL,data)
         console.log("response",response)
@@ -79,7 +82,7 @@ const RegisterPage = () => {
   return (
     <div className='mt-5'>
         <div className='bg-white w-full max-w-md  rounded overflow-hidden p-4 mx-auto'>
-          <h3>Welcome to Chat app!</h3>
+          <h3>Welcome to Talkify</h3>
 
           <form className='grid gap-4 mt-5' onSubmit={handleSubmit}>
               <div className='flex flex-col gap-1'>
