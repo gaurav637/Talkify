@@ -23,7 +23,7 @@ const CheckPasswordPage = () => {
       navigate('/email')
     }
   },[])
-
+  //console.log("location?.state?._id",location?.state?._id);
   const handleOnChange = (e)=>{
     const { name, value} = e.target
 
@@ -42,16 +42,15 @@ const CheckPasswordPage = () => {
     const URL = `${process.env.REACT_APP_BACKEND_URL}/api/password`
 
     try {
-        const response = await axios({
-          method :'post',
-          url : URL,
-          data : {
-            userId : location?.state?._id,
-            password : data.password
-          },
-          withCredentials : true
-        })
+      const response = await axios.post(URL, {
+        userId: location?.state?._id,
+        password: data.password
+      }, {
+        withCredentials: true
+      });
 
+        // console.log("data -> ",data);
+        // console.log("location?.state?._id",location?.state?._id);
         toast.success(response.data.message)
 
         if(response.data.success){

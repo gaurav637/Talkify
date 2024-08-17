@@ -60,7 +60,7 @@ const CheckEmailPage = () => {
                 />
             </div>
 
-          <h3>Welcome to Chat app!</h3>
+          <h3>Welcome to Talkify🌈</h3>
 
           <form className='grid gap-4 mt-3' onSubmit={handleSubmit}>
               

@@ -52,8 +52,8 @@ const RegisterPage = () => {
     e.preventDefault()
     e.stopPropagation()
 
-    // const URL = `${process.env.REACT_APP_BACKEND_URL}/api/register`
-    const URL = "http://localhost:4040/api/register";
+    const URL = `${process.env.REACT_APP_BACKEND_URL}/api/register`
+    //const URL = "http://localhost:4040/api/register";
 console.log("helloo url -> ",URL);
     try {
         const response = await axios.post(URL,data)
