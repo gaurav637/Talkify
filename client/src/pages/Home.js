@@ -1,10 +1,11 @@
+// src/components/Home.js
 import React, { useEffect } from 'react';
 import { useSocket } from '../context/SocketContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { setOnlineUser } from '../redux/userSlice';
 import Sidebar from '../components/Sidebar';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
-import logo from '//Users/sudhanshubhardwaj/Desktop/chatApp/client/src/assets /logo.png';
+import logo from '/Users/sudhanshubhardwaj/Desktop/chatApp/client/src/assets /logo.png';
 import axios from 'axios';
 import { setUser, logout } from '../redux/userSlice';
 
@@ -53,18 +54,20 @@ const Home = () => {
   const basePath = location.pathname === '/';
 
   return (
-    <div className="flex flex-col lg:flex-row h-screen max-h-screen">
-      <aside className={`bg-gray-800 text-white ${basePath ? 'block' : 'hidden'} lg:block w-80 p-4 shadow-md`}>
+    <div className="grid lg:grid-cols-[300px,1fr] h-screen max-h-screen">
+      <section className={`bg-white ${!basePath && 'hidden'} lg:block`}>
         <Sidebar />
-      </aside>
+      </section>
 
-      <main className={`flex-1 ${basePath ? 'flex items-center justify-center' : ''} p-4`}>
+      <section className={`${basePath && 'hidden'}`}>
         <Outlet />
-      </main>
+      </section>
 
-      <div className={`flex flex-col items-center justify-center p-4 ${basePath ? 'flex' : 'hidden'} lg:hidden`}>
-        <img src={logo} width={200} alt="logo" className="mb-4" />
-        <p className="text-xl text-gray-600">Select a user to start chatting</p>
+      <div className={`justify-center items-center flex-col gap-2 hidden ${!basePath ? 'hidden' : 'lg:flex'}`}>
+        <div>
+          <img src={logo} width={250} alt="logo" />
+        </div>
+        <p className="text-lg mt-2 text-slate-500">Select user to send message</p>
       </div>
     </div>
   );

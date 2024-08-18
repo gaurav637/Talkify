@@ -22,7 +22,7 @@ const AuthLayouts = ({ children }) => {
 
       {/* Footer Section */}
       <footer className="text-center py-4 text-sm text-gray-500">
-        &copy; 2024 Talkify. Designed by Gaurav Negi.
+        &copy; 2024 Talkify. Developed by @Gaurav Negi.
       </footer>
     </div>
   );
