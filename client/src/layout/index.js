@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '/Users/sudhanshubhardwaj/Desktop/chatApp/client/src/assets /logo.jpg'
+import logo from '/Users/sudhanshubhardwaj/Desktop/chatApp/client/src/assets /logo.png'
 
 const AuthLayouts = ({children}) => {
   return (
