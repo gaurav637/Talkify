@@ -26,6 +26,7 @@ io.on('connection', async (socket) => {
 
     const token = socket.handshake.auth.token;
     // Handle user connection
+   // console.log("token -> ",token);
     const user = await handleUserConnection(socket, token);
     if (!user) return;
 

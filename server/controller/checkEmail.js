@@ -8,7 +8,7 @@ async function checkEmail(request,response){  // check email
 
         if(!checkEmail){
             return response.status(400).json({
-                message : "user not exit",
+                message : "Invalid Email!",
                 error : true
             })
         }
