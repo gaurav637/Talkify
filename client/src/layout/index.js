@@ -1,21 +1,31 @@
-import React from 'react'
-import logo from '/Users/sudhanshubhardwaj/Desktop/chatApp/client/src/assets /logo.png'
+import React from 'react';
+import logo from '/Users/sudhanshubhardwaj/Desktop/chatApp/client/src/assets /logo.png';
 
-const AuthLayouts = ({children}) => {
+const AuthLayouts = ({ children }) => {
   return (
-    <>
-        <header className='flex justify-center items-center py-3 h-20 shadow-md bg-white'>
-            <img 
-              src={logo}
-              alt='logo'
-              width={180}
-              height={60}
-            />
-        </header>
+    <div className="min-h-screen flex flex-col bg-gray-100">
+      {/* Header Section */}
+      <header className="flex justify-center items-center py-4 bg-white shadow-md">
+        <img
+          src={logo}
+          alt="Talkify Logo"
+          className="h-24 w-auto object-contain mx-4" // Increased height and added padding
+        />
+      </header>
 
-        { children }
-    </>
-  )
-}
+      {/* Content Section */}
+      <main className="flex-grow flex justify-center items-center">
+        <div className="w-full max-w-lg p-6 bg-white rounded-lg shadow-lg">
+          {children}
+        </div>
+      </main>
 
-export default AuthLayouts
+      {/* Footer Section */}
+      <footer className="text-center py-4 text-sm text-gray-500">
+        &copy; 2024 Talkify. Designed by Gaurav Negi.
+      </footer>
+    </div>
+  );
+};
+
+export default AuthLayouts;
