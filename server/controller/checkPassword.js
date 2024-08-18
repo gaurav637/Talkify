@@ -17,7 +17,7 @@ async function checkEmail(request,response){
         }
         const key = process.env.JWT_SECREAT_KEY;
         const token = jwt.sign({userId:checkEmail._id},key,{ expiresIn: '7d' });
-        response.cookie("token",token);
+        response.cookie("token",token); // get token
 
         return response.status(200).json({
             message : "email verify",
