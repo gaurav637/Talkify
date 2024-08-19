@@ -8,7 +8,7 @@ const initialState = {
   token: "",
   onlineUser: [],
   socketConnection: null
-}
+};
 
 export const userSlice = createSlice({
   name: 'user',
@@ -23,8 +23,7 @@ export const userSlice = createSlice({
     setToken: (state, action) => {
       state.token = action.payload;
     },
-    logout: (state, action) => {
-      // Close the socket connection when logging out
+    logout: (state) => {
       if (state.socketConnection) {
         state.socketConnection.disconnect();
       }
@@ -39,12 +38,13 @@ export const userSlice = createSlice({
       state.onlineUser = action.payload;
     },
     setSocketConnection: (state, action) => {
+      console.log('Setting socketConnection:', action.payload);
       state.socketConnection = action.payload;
     }
   }
 });
 
-// Action creators are generated for each case reducer function
+// Action creators
 export const { setUser, setToken, logout, setOnlineUser, setSocketConnection } = userSlice.actions;
 
 export default userSlice.reducer;

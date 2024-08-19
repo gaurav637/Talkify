@@ -13,7 +13,8 @@ import moment from 'moment';
 
 const MessagePage = () => {
   const params = useParams();
-  const socketConnection = useSelector((state) => state?.user?.socketConnection);
+  console.log("params -> ",params);
+  const socketConnection = useSelector((state) => state?.user?.socketConnection );
   console.log("socketConnection 17",socketConnection);
   const user = useSelector((state) => state?.user);
   const [dataUser, setDataUser] = useState({
@@ -102,7 +103,7 @@ const MessagePage = () => {
     e.preventDefault();
     if (message.text || message.imageUrl || message.videoUrl) {
       console.log("inside 104 ");
-      console.log("socketConnection -> ",socketConnection);
+     // console.log("socketConnection -> ",socketConnection);
       if (socketConnection) {
         console.log("heloo 104 inside of scoketConnection");
         const msg = socketConnection.emit('new message', {
