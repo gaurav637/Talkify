@@ -22,12 +22,14 @@ const onlineUser = new Set();
 
 // Handle new socket connection
 io.on('connection', async (socket) => {
-    console.log("Connected user", socket.id);
+    console.log("Connected user 1-> ", socket.id);
 
     const token = socket.handshake.auth.token;
     // Handle user connection
    // console.log("token -> ",token);
     const user = await handleUserConnection(socket, token);
+    //console.log("user 31 ->",user.name);
+    //console.log("user - . ",user);
     if (!user) return;
 
     // Handle message-page event
