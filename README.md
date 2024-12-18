@@ -77,3 +77,24 @@ We welcome contributions to the Talkify project! If you’d like to contribute, 
    Make sure your pull request description clearly explains the changes you’ve made.
 
    Thank you for contributing to Talkify! We appreciate your help in improving the project.
+
+   ## Register
+   
+   <img width="1280" alt="Screenshot 2024-12-19 at 12 24 11 AM" src="https://github.com/user-attachments/assets/84051be1-508f-470d-8c51-d30ade63525b" />
+
+ ## Login
+ 
+   <img width="1277" alt="Screenshot 2024-12-19 at 12 25 19 AM" src="https://github.com/user-attachments/assets/b9756d6a-168e-417b-bb33-b35fa3fa14b8" />
+
+##Home 
+
+
+   <img width="1279" alt="Screenshot 2024-12-19 at 12 27 14 AM" src="https://github.com/user-attachments/assets/de5cf98e-1cc5-4f4c-b15d-70ea8d780632" />
+
+##Profile
+
+<img width="1280" alt="Screenshot 2024-12-19 at 12 28 30 AM" src="https://github.com/user-attachments/assets/31939464-ac68-46bb-ae5a-ae997fd86964" />
+<img width="1279" alt="Screenshot 2024-12-19 at 12 27 14 AM" src="https://github.com/user-attachments/assets/100b950a-0a73-42e7-954c-a3500e102a33" />
+
+<img width="1279" alt="Screenshot 2024-12-19 at 12 30 17 AM" src="https://github.com/user-attachments/assets/74cef81c-1e30-4067-aeb6-7ce241e64b88" />
+<img width="1280" alt="Screenshot 2024-12-19 at 12 29 02 AM" src="https://github.com/user-attachments/assets/08b5a124-b84d-473a-832f-2c5204999fba" />
