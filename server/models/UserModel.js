@@ -17,6 +17,15 @@ const userSchema =  new mongoose.Schema({
     profile_pic : {
         type : String,
         default : ""
+    },
+    phone:{
+        type: String,
+    },
+    Bio:{
+        type:String,
+    },
+    address:{
+        type: String,
     }
 },{
     timestamps : true

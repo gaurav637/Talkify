@@ -6,10 +6,7 @@ const bcryptjs = require('bcryptjs');
 async function checkEmail(request,response){
     try {
         const { password,userId } = request.body
-       // console.log("password -> ",password);
-       // const checkEmail = await UserModel.findOne({_id}).select("-password")
-
-       const checkEmail = await UserModel.findOne({ _id: userId});
+        const checkEmail = await UserModel.findOne({ _id: userId});
         if(!checkEmail){
             return response.status(400).json({
                 message : "user not exit",

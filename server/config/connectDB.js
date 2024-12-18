@@ -11,10 +11,10 @@ async function connectDB(){
         })
 
         connection.on('error',(error)=>{
-            console.log("Something is wrong in mongodb ",error)
+            console.log("MongoDB Failed ",error)
         })
     } catch (error) {
-        console.log("Something is wrong ",error)
+        console.log("Failed to connect DataBase",error)
     }
 }
 

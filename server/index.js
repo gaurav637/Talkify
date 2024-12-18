@@ -22,9 +22,6 @@ app.get('/',(request,response)=>{
     })
 })
 
-app.get('/checkIntoServer' , (req,res) => {
-    res.send("hello world welcome");
-})
 
 //api endpoints
 app.use('/api',router)
