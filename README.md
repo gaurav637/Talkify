@@ -56,27 +56,21 @@ We welcome contributions to the Talkify project! If you’d like to contribute, 
 
 - Once you’ve forked the repository, clone your fork to your local machine using the following command:
 
-```bash
-git clone https://github.com/your-username/talkify.git
+  ```bash
+   git clone https://github.com/your-username/talkify.git
 3. Create a New Branch
-Before making any changes, create a new branch for your feature or bug fix:
-bash
-Copy code
-git checkout -b feature-branch
-Replace feature-branch with a descriptive name for your branch.
+ Before making any changes, create a new branch for your feature or bug fix:
+ ```git checkout -b feature-branch```
+ Replace feature-branch with a descriptive name for your branch.
+4. Make the Necessary Changes and Commit Them After you’ve made your changes, commit them with a meaningful commit message:
 
-4. Make the Necessary Changes and Commit Them
-After you’ve made your changes, commit them with a meaningful commit message:
-bash
-Copy code
-git commit -am 'Add new feature'
+ ```git commit -am 'Add new feature'```
 Be sure to write a clear and concise commit message explaining your changes.
 
 5. Push Your Changes
 Push your changes to your fork on GitHub:
-bash
-Copy code
-git push origin feature-branch
+
+```git push origin feature-branch```
 6. Open a Pull Request
 Once your changes are pushed, go to your repository on GitHub and click the New Pull Request button to submit your changes for review.
 
