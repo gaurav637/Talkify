@@ -5,9 +5,7 @@ import { useSelector } from 'react-redux';
 // avatar page
 const Avatar = ({userId,name,imageUrl,width,height}) => {
     const onlineUser = useSelector(state => state?.user?.onlineUser)
-
     let avatarName = ""
-
     if(name){
       const splitName = name?.split(" ")
 

@@ -7,6 +7,9 @@ import Home from "../pages/Home";
 import MessagePage from "../components/MessagePage";
 import AuthLayouts from "../layout";
 import Forgotpassword from "../pages/Forgotpassword";
+import Sidebar from '../components/Sidebar';
+import TaskManager from '../pages/TaskManager';
+
 
 const router = createBrowserRouter([
 {
@@ -28,6 +31,16 @@ const router = createBrowserRouter([
         {
             path : '/forgot-password',
             element : <AuthLayouts><Forgotpassword/></AuthLayouts>
+        },
+        {
+            path : "/",
+            element : <Home/>,
+            children : [
+                {
+                    path : '/task-manager',
+                    element : <TaskManager/>
+                }
+            ]
         },
         {
             path : "",

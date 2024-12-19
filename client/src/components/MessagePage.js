@@ -7,7 +7,7 @@ import { FaAngleLeft, FaPlus, FaImage, FaVideo } from "react-icons/fa6";
 import uploadFile from '../helpers/uploadFile';
 import { IoClose } from "react-icons/io5";
 import Loading from './Loading';
-import backgroundImage from '/Users/sudhanshubhardwaj/Desktop/chatApp/client/src/assets /wallpaper.jpg';
+import backgroundImage from '/Users/sudhanshubhardwaj/Desktop/chatApp/client/src/assets /wallpaper1.jpg';
 import { IoMdSend } from "react-icons/io";
 import moment from 'moment';
 
@@ -47,14 +47,20 @@ const MessagePage = () => {
   const handleUploadImage = async (e) => {
     const file = e.target.files[0];
     setLoading(true);
-    const uploadPhoto = await uploadFile(file);
-    setLoading(false);
-    setOpenImageVideoUpload(false);
-    setMessage((prev) => ({
-      ...prev,
-      imageUrl: uploadPhoto.url
-    }));
+    try {
+      const uploadPhoto = await uploadFile(file);
+      setLoading(false);
+      setOpenImageVideoUpload(false);
+      setMessage((prev) => ({
+        ...prev,
+        imageUrl: uploadPhoto.url // Check if the correct URL is returned here
+      }));
+    } catch (error) {
+      setLoading(false);
+      console.error("Error uploading image:", error); // Add error handling here
+    }
   };
+  
 
   const handleClearUploadImage = () => {
     setMessage((prev) => ({
@@ -66,14 +72,20 @@ const MessagePage = () => {
   const handleUploadVideo = async (e) => {
     const file = e.target.files[0];
     setLoading(true);
-    const uploadPhoto = await uploadFile(file);
-    setLoading(false);
-    setOpenImageVideoUpload(false);
-    setMessage((prev) => ({
-      ...prev,
-      videoUrl: uploadPhoto.url
-    }));
+    try {
+      const uploadPhoto = await uploadFile(file);
+      setLoading(false);
+      setOpenImageVideoUpload(false);
+      setMessage((prev) => ({
+        ...prev,
+        videoUrl: uploadPhoto.url // Check if the correct URL is returned here
+      }));
+    } catch (error) {
+      setLoading(false);
+      console.error("Error uploading video:", error); // Add error handling here
+    }
   };
+  
 
   const handleClearUploadVideo = () => {
     setMessage((prev) => ({
@@ -103,7 +115,7 @@ const MessagePage = () => {
     e.preventDefault();
     if (message.text || message.imageUrl || message.videoUrl) {
       console.log("inside 104 ");
-     // console.log("socketConnection -> ",socketConnection);
+       console.log("socketConnection -> ",socketConnection);
       if (socketConnection) {
         console.log("heloo 104 inside of scoketConnection");
         const msg = socketConnection.emit('new message', {
@@ -164,23 +176,23 @@ const MessagePage = () => {
 
         {/* Uploaded Image Preview */}
         {message.imageUrl && (
-          <div className='fixed bottom-20 left-0 w-full flex justify-center items-center bg-opacity-80 p-2'>
-            <div className='relative'>
-              <IoClose size={30} className='absolute top-2 right-2 cursor-pointer text-red-600' onClick={handleClearUploadImage} />
-              <img src={message.imageUrl} alt='Preview' className='max-w-xs rounded-lg shadow-lg' />
-            </div>
-          </div>
-        )}
+  <div className='fixed bottom-20 left-0 w-full flex justify-center items-center bg-opacity-80 p-2'>
+    <div className='relative'>
+      <IoClose size={30} className='absolute top-2 right-2 cursor-pointer text-red-600' onClick={handleClearUploadImage} />
+      <img src={message.imageUrl} alt='Preview' className='max-w-xs rounded-lg shadow-lg' />
+    </div>
+  </div>
+)}
 
         {/* Uploaded Video Preview */}
         {message.videoUrl && (
-          <div className='fixed bottom-20 left-0 w-full flex justify-center items-center bg-opacity-80 p-2'>
-            <div className='relative'>
-              <IoClose size={30} className='absolute top-2 right-2 cursor-pointer text-red-600' onClick={handleClearUploadVideo} />
-              <video src={message.videoUrl} controls className='max-w-xs rounded-lg shadow-lg' />
-            </div>
-          </div>
-        )}
+  <div className='fixed bottom-20 left-0 w-full flex justify-center items-center bg-opacity-80 p-2'>
+    <div className='relative'>
+      <IoClose size={30} className='absolute top-2 right-2 cursor-pointer text-red-600' onClick={handleClearUploadVideo} />
+      <video src={message.videoUrl} controls className='max-w-xs rounded-lg shadow-lg' />
+    </div>
+  </div>
+)}
 
         {/* Loading State */}
         {loading && (
@@ -199,16 +211,18 @@ const MessagePage = () => {
           {openImageVideoUpload && (
             <div className='absolute bottom-12 left-0 w-40 bg-white shadow-lg rounded-lg'>
               <form className='flex flex-col'>
-                <label htmlFor='uploadImage' className='flex items-center gap-2 p-2 hover:bg-gray-100 cursor-pointer'>
-                  <FaImage className='text-primary' size={18} />
-                  <span>Image</span>
-                </label>
-                <input type='file' id='uploadImage' className='hidden' onChange={handleUploadImage} />
-                <label htmlFor='uploadVideo' className='flex items-center gap-2 p-2 hover:bg-gray-100 cursor-pointer'>
-                  <FaVideo className='text-purple-500' size={18} />
-                  <span>Video</span>
-                </label>
-                <input type='file' id='uploadVideo' className='hidden' onChange={handleUploadVideo} />
+              <label htmlFor='uploadImage' className='flex items-center gap-2 p-2 hover:bg-gray-100 cursor-pointer'>
+  <FaImage className='text-primary' size={18} />
+  <span>Image</span>
+</label>
+<input type='file' id='uploadImage' className='hidden' onChange={handleUploadImage} />
+
+                
+<label htmlFor='uploadVideo' className='flex items-center gap-2 p-2 hover:bg-gray-100 cursor-pointer'>
+  <FaVideo className='text-purple-500' size={18} />
+  <span>Video</span>
+</label>
+<input type='file' id='uploadVideo' className='hidden' onChange={handleUploadVideo} />
               </form>
             </div>
           )}

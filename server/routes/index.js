@@ -23,6 +23,14 @@ router.get('/logout',logout)
 router.post('/update-user',updateUserDetails)
 //search user
 router.post("/search-user",searchUser)
+const { createNote, getNotes, getArchivedNotes, updateNote, deleteNote } = require('../controller/note')
+
+// Note routes
+router.post('/notes', createNote)
+router.get('/notes', getNotes)
+router.get('/notes/archived', getArchivedNotes) 
+router.put('/notes/:id', updateNote)
+router.delete('/notes/:id', deleteNote)
 
 
 module.exports = router;

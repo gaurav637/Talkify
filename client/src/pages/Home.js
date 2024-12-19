@@ -55,15 +55,24 @@ const Home = () => {
 
   return (
     <div className="grid lg:grid-cols-[300px,1fr] h-screen max-h-screen">
-      <section className={`bg-white ${!basePath && 'hidden'} lg:block`}>
+      {/* Sidebar Section with Gradient Background */}
+      <section
+        className={`bg-gradient-to-r from-blue-50 via-indigo-100 to-blue-200 ${!basePath && 'hidden'} lg:block`}
+      >
         <Sidebar />
       </section>
 
-      <section className={`${basePath && 'hidden'}`}>
+      {/* Main Content Section */}
+      <section className={`${basePath && 'hidden'} bg-gradient-to-b from-gray-50 to-gray-100`}>
         <Outlet />
       </section>
 
-      <div className={`justify-center items-center flex-col gap-2 hidden ${!basePath ? 'hidden' : 'lg:flex'}`}>
+      {/* Center Content for Select User */}
+      <div
+        className={`justify-center items-center flex-col gap-2 hidden ${
+          !basePath ? 'hidden' : 'lg:flex'
+        } bg-gradient-to-r from-indigo-50 via-purple-100 to-pink-100`}
+      >
         <div>
           <img src={logo} width={250} alt="logo" />
         </div>
